@@ -14,7 +14,8 @@ reverse("id"); // "di"
 reverse(""); // ""
 ***********************************************************************/
 let reverse = (str) => {
-  if(str.length === 0) {
+
+  if (str.length === 0) {
     return '';
   };
 

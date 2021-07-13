@@ -39,11 +39,22 @@ be recursively calling `advancedExponent`. Find a way to visually see how many
 times `advancedExponent` is being recursively called.
 ***********************************************************************/
 
-
 function advancedExponent(b, n) {
-  // your code here
+  //base cases:
+  if (n === 0) return 1;
+  if (n === 1) return b;
+  if (n === 2) return 2 * b;
+  //if n % 2 = 0 the num is even
+  if (n % 2 === 0) {
+    //do applicable math operations and return
+    const halfExp = advancedExponent(b, n / 2);
+    return halfExp * halfExp;
+  } else {
+    //do applicable math operations and return
+    const halfExp = advancedExponent(b, (n - 1) / 2);
+    return b * halfExp * halfExp;
+  }
 }
-
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
