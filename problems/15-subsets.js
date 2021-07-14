@@ -4,7 +4,7 @@ Write a function called `subsets` that will return all subsets of an array.
 Examples:
 
 subsets([]) // [[]]
-subsets([1]) // [[], [1]]
+subsets([1]) // [[], [1],[2], [1,2]]
 subsets([1, 2]) // [[], [1], [2], [1, 2]]
 subsets([1, 2, 3]) // [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
 
@@ -13,14 +13,31 @@ Hint: For subsets([1, 2, 3]), there are two kinds of subsets:
   2. For every subset that does not contain 3, there is also a corresponding
      subset that is the same, except it also does contain 3.
 ***********************************************************************/
-let subsets =  (arr) =>{
-let res = [];
-if(arr.length  === 0) return [res];
-let last =
-res.push([last -1. last])
+let subsets = (arr) => {
+  let res = [arr];
 
-  }
+  if (res[0].length === 0) {
+    return res
+  };
 
+  let newArr = arr[0]
+  let sliced = arr.slice(0,arr.length-1)
+
+  newArr.forEach(ele => {
+
+    res.unshift([ele, sliced])
+
+  });
+
+  return subsets(res)
+}
+
+// [2, 3]
+// [1, 3]
+// [3]
+// [1, 2]
+// [1]
+// [0]
 console.log(subsets([])) // [[]]
 console.log(subsets([1])) // [[], [1]]
 console.log(subsets([1, 2])) // [[], [1], [2], [1, 2]]
@@ -31,13 +48,3 @@ try {
 } catch (e) {
   module.exports = null;
 }
-
-
-
-
-// [2, 3]
-// [1, 3]
-// [3]
-// [1, 2]
-// [1]
-// [0]
