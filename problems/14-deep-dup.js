@@ -35,19 +35,16 @@ console.log(x[0] === y[0]) // true
 
 ***********************************************************************/
 let deepDup = (arr) => {
-let res = [];
+  let res = [];
 
-arr.forEach(ele => {
-if(Array.isArray(ele)){
-res.push(ele.slice(0));
-console.log(res)
-// console.log(res[0] === arr[0])
-// console.log(res === arr);
-  } else {
-    return res;
-  }
-});
-
+  arr.forEach(ele => {
+    if (Array.isArray(ele)) {
+      res.push(deepDup(ele));
+    } else {
+      res.push(ele)
+    }
+  });
+  return res
 }
 
 
