@@ -39,12 +39,14 @@ let res = [];
 
 arr.forEach(ele => {
 if(Array.isArray(ele)){
-let a =res.push(ele.slice(0,ele.length).concat(...arr))
-console.log(a)
-
-}
+res.push(ele.slice(0));
+console.log(res)
+// console.log(res[0] === arr[0])
+// console.log(res === arr);
+  } else {
+    return res;
+  }
 });
-
 
 }
 
